@@ -1,0 +1,13 @@
+
+auto-update-channel = stable 
+
+clipboard-trim-trailing-spaces = true
+
+font-size = 18
+font-family = JetBrainsMono Nerd Font
+
+gtk-single-instance = true
+
+theme = catppuccin-mocha
+
+
