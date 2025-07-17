@@ -216,26 +216,6 @@ down = 'volume down'
 up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace W' # mnemonics W - Web browser
-
-# ghostty
-[[on-window-detected]]
-if.app-id = "com.mitchellh.ghostty"
-run = ["layout floating", "move-node-to-workspace 1"]
-
-# vscode
-[[on-window-detected]]
-if.app-id = "com.microsoft.VSCode"
-run = ["layout floating", "move-node-to-workspace 2"]
-
-# zoom
-[[on-window-detected]]
-if.app-id = "us.zoom.xos"
-run = ["layout floating"]
-
-
 # display
 [workspace-to-monitor-force-assignment]
 1 = 'main'      # Monitor sequence number from left to right. 1-based indexing
@@ -247,3 +227,42 @@ run = ["layout floating"]
 8 = 'secondary' # Non-main monitor in case when there are only two monitors
 9 = 'secondary' # Non-main monitor in case when there are only two monitors
 0 = 'secondary'
+
+# chatgpt
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = [
+  'move-node-to-workspace C', # mnemonics 1 - Terminal
+]
+
+# claude
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = [
+  'move-node-to-workspace C', # mnemonics c - ChatGPT
+]
+
+# chrome
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace W' # mnemonics W - Web browser
+
+# ghostty
+[[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
+run = ["layout floating", "move-node-to-workspace 1"]
+
+# slack
+[[on-window-detected]]
+if.app-id = "com.tinyspeck.slackmacgap"
+run = ["move-node-to-workspace 9"]
+
+# vscode
+[[on-window-detected]]
+if.app-id = "com.microsoft.VSCode"
+run = ["layout floating", "move-node-to-workspace 2"]
+
+# zoom
+[[on-window-detected]]
+if.app-id = "us.zoom.xos"
+run = ["layout floating"]
