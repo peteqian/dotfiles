@@ -86,7 +86,6 @@ if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
 end
 
-# oh-my-posh init fish --config ~/.config/fish/omp/catppuccin-custom.json | source
 oh-my-posh init fish --config ~/.config/fish/omp/takuya.omp.json | source
 
 # Added by LM Studio CLI (lms)
