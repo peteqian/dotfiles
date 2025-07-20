@@ -30,6 +30,13 @@ set -gx PATH node_modules/.bin $PATH
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
+# Bun
+set -g BUNPATH $HOME/.bun
+set -gx PATH $BUNPATH/bin $PATH
+
+# veraPDF
+set -U PATH /Users/applecakes/verapdf $PATH
+
 # Fish
 load_nvm >/dev/stderr
 
@@ -41,7 +48,6 @@ switch (uname)
     case '*'
         source (dirname (status --current-filename))/config-windows.fish
 end
-
 
 # Fish syntax highlighting
 set -g fish_color_autosuggestion 555 brblack
@@ -80,4 +86,10 @@ if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
 end
 
-oh-my-posh init fish --config ~/.config/fish/omp/pancake.omp.json | source
+# oh-my-posh init fish --config ~/.config/fish/omp/catppuccin-custom.json | source
+oh-my-posh init fish --config ~/.config/fish/omp/takuya.omp.json | source
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/applecakes/.cache/lm-studio/bin
+set -x PATH $HOME/.pyenv/bin $PATH
+status --is-interactive; and source (pyenv init -|psub)
