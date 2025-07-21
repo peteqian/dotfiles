@@ -35,10 +35,15 @@ set -g BUNPATH $HOME/.bun
 set -gx PATH $BUNPATH/bin $PATH
 
 # veraPDF
-set -U PATH /Users/applecakes/verapdf $PATH
+# set -U PATH /Users/applecakes/verapdf $PATH
 
 # Fish
 load_nvm >/dev/stderr
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/applecakes/.cache/lm-studio/bin
+set -x PATH $HOME/.pyenv/bin $PATH
+status --is-interactive; and source (pyenv init -|psub)
 
 switch (uname)
     case Darwin
@@ -87,8 +92,3 @@ if test -f $LOCAL_CONFIG
 end
 
 oh-my-posh init fish --config ~/.config/fish/omp/takuya.omp.json | source
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/applecakes/.cache/lm-studio/bin
-set -x PATH $HOME/.pyenv/bin $PATH
-status --is-interactive; and source (pyenv init -|psub)
