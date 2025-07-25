@@ -37,6 +37,10 @@
 
 #custom-music,
 #tray,
+#cpu,
+#memory,
+#network,
+#bluetooth,
 #backlight,
 #clock,
 #battery,
@@ -76,7 +80,7 @@
   border-radius: 0;
 }
 
-#pulseaudio {
+#cpu {
   color: @maroon;
   border-radius: 2rem 0px 0px 1rem;
   margin-left: 1rem;

@@ -92,3 +92,4 @@ if test -f $LOCAL_CONFIG
 end
 
 oh-my-posh init fish --config ~/.config/fish/omp/takuya.omp.json | source
+zoxide init fish | source

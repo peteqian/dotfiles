@@ -3,6 +3,8 @@
   "modules-left": ["hyprland/workspaces", "hyprland/submap"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
+    "cpu",
+    "memory",
     "tray",
     "network",
     "bluetooth",
@@ -20,6 +22,13 @@
       "Code": "VSCode",
     },
   },
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 1,
+  },
+  "memory": {
+    "format": " {used:0.1f}G/{total:0.1f}G",
+  },
   "tray": {
     "spacing": 10,
     "icon-size": 18,
@@ -27,7 +36,7 @@
   "bluetooth": {
     "format": " {status}",
     "format-disabled": "",
-    "format-connected": " {num_connections} connected",
+    "format-connected": " {num_connections}",
     "format-off": "",
     "interval": 30,
     "on-click": "blueman-manager",
