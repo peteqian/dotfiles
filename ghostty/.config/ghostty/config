@@ -14,3 +14,4 @@ keybind=alt+d=new_split:right
 
 theme = catppuccin-mocha
 
+keybind = shift+enter=text:\n
