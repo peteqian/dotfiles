@@ -7,13 +7,13 @@
   "modules-left": ["hyprland/workspaces", "hyprland/submap"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
-    "group/tray-expander",
     "cpu",
     "memory",
     "network",
     "bluetooth",
     "pulseaudio",
     "backlight",
+    "custom/brightness",
     "battery",
     "power-profiles-daemon",
     "clock",
@@ -33,10 +33,6 @@
       "children-class": "tray-group-item",
     },
     "modules": ["custom/expand-icon", "tray"],
-  },
-  "custom/expand-icon": {
-    "format": " ",
-    "tooltip": false,
   },
   "tray": {
     "icon-size": 12,
@@ -88,6 +84,16 @@
       "",
     ],
     "scroll-step": 1,
+  },
+  "custom/brightness": {
+    "format": "{icon} {percentage}%",
+    "format-icons": ["", "", ""],
+    "exec": "~/.config/waybar/scripts/brightness.sh",
+    "return-type": "json",
+    "on-scroll-up": "~/.config/waybar/scripts/brightness.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness.sh down",
+    "interval": 1,
+    "tooltip": true,
   },
   "battery": {
     "states": {

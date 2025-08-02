@@ -2,19 +2,18 @@
 
 * {
   font-family: FantasqueSansMono Nerd Font;
-  font-size: 17px;
+  font-size: 14px;
   min-height: 0;
 }
 
 #waybar {
   background: transparent;
   color: @text;
-  margin: 5px 5px;
 }
 
 #workspaces {
-  border-radius: 1rem;
-  margin: 5px;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
   background-color: @surface0;
   margin-left: 1rem;
 }
@@ -47,7 +46,8 @@
 #pulseaudio,
 #custom-lock,
 #power-profiles-daemon,
-#custom-power {
+#custom-power,
+#custom-brightness {
   background-color: @surface0;
   padding: 0.5rem 1rem;
   margin: 5px 0;
@@ -76,7 +76,13 @@
 }
 
 #backlight,
-#battery {
+#battery,
+#custom-brightness {
+  border-radius: 0;
+}
+
+#custom-brightness {
+  color: @peach;
   border-radius: 0;
 }
 
