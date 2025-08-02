@@ -2,7 +2,7 @@ auto-update-channel = stable
 
 clipboard-trim-trailing-spaces = true
 
-font-size = 18
+font-size = 14
 font-family = JetBrainsMono Nerd Font
 
 gtk-single-instance = true
@@ -11,6 +11,12 @@ keybind=alt+t=new_tab
 keybind=alt+w=close_surface
 keybind=alt+shift+d=new_split:down
 keybind=alt+d=new_split:right
+
+keybind = ctrl+shift+up=goto_split:top
+keybind = ctrl+shift+down=goto_split:bottom
+keybind = ctrl+shift+left=goto_split:left
+keybind = ctrl+shift+right=goto_split:right
+keybind = ctrl+w=close_surface
 
 theme = catppuccin-mocha
 
