@@ -16,21 +16,24 @@ return {
       },
     },
   },
-  "folke/snacks.nvim",
-  opts = {
-    picker = {
-      sources = {
-        explorer = {
-          hidden = true,
-          ignored = true,
-        },
-        files = {
-          hidden = false,
-          ignored = false,
-        },
-        grep = {
-          hidden = false,
-          ignored = false,
+  {
+    -- explorer
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        sources = {
+          explorer = {
+            hidden = true,
+            ignored = true,
+          },
+          files = {
+            hidden = true,
+            ignored = false,
+          },
+          grep = {
+            hidden = true,
+            ignored = false,
+          },
         },
       },
     },
