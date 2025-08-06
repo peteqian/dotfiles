@@ -1,1 +1,0 @@
-source "/Users/applecakes/.deno/env.fish"

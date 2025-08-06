@@ -34,17 +34,6 @@ set -gx PATH $GOPATH/bin $PATH
 set -g BUNPATH $HOME/.bun
 set -gx PATH $BUNPATH/bin $PATH
 
-# veraPDF
-# set -U PATH /Users/applecakes/verapdf $PATH
-
-# Fish
-load_nvm >/dev/stderr
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/applecakes/.cache/lm-studio/bin
-set -x PATH $HOME/.pyenv/bin $PATH
-status --is-interactive; and source (pyenv init -|psub)
-
 switch (uname)
     case Darwin
         source (dirname (status --current-filename))/config-osx.fish
