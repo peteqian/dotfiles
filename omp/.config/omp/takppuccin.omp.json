@@ -27,7 +27,8 @@
           "foreground": "#1e1e2e",
           "powerline_symbol": "\ue0b0",
           "properties": {
-            "style": "full"
+            "style": "full",
+            "truncate_to": 30
           },
           "style": "powerline",
           "template": " \uea83 {{ path .Path .Location }} ",
@@ -281,3 +282,4 @@
   ],
   "version": 3
 }
+
