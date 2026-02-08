@@ -38,18 +38,8 @@ set -gx PATH $BUNPATH/bin $PATH
 # Deno
 set -gx PATH $HOME/.deno/bin $PATH
 
-# pnpm
-set -gx PNPM_HOME /Users/applecakes/Library/pnpm
-set -gx PATH $PNPM_HOME $PATH
-
 # Homebrew
 set -gx PATH /opt/homebrew/bin $PATH
-
-# veraPDF
-set -gx PATH /Users/applecakes/verapdf $PATH
-
-# opencode
-set -gx PATH /Users/applecakes/.opencode/bin $PATH
 
 # PostgreSQL
 set -gx PATH /opt/homebrew/opt/postgresql@17/bin $PATH
@@ -93,15 +83,6 @@ set -g fish_color_selection white --bold '--background=brblack'
 set -g fish_color_user brgreen
 set -g fish_color_valid_path --underline
 
-switch (uname)
-    case Darwin
-        source (dirname (status --current-filename))/config-osx.fish
-    case Linux
-        source (dirname (status --current-filename))/config-linux.fish
-    case '*'
-        source (dirname (status --current-filename))/config-windows.fish
-end
-
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
@@ -110,11 +91,6 @@ end
 # oh-my-posh init fish --config ~/.config/fish/omp/catppuccin-custom.json | source
 oh-my-posh init fish --config ~/.config/fish/omp/takppuccin.omp.json | source
 # starship init fish | source
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/applecakes/.cache/lm-studio/bin
-set -x PATH $HOME/.pyenv/bin $PATH
-status --is-interactive; and source (pyenv init -|psub)
 
 zoxide init fish | source
 test -f /opt/homebrew/share/autojump/autojump.fish; and source /opt/homebrew/share/autojump/autojump.fish
@@ -219,7 +195,3 @@ alias cdi=__zoxide_zi
 #
 #   zoxide init fish | source
 fish_add_path $HOME/.local/bin
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
-
-/Users/applecakes/.local/bin/mise activate fish | source # added by https://mise.run/fish
-mise activate fish --shims | source
