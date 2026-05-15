@@ -91,6 +91,19 @@ should_stow_package() {
   return 0
 }
 
+stow_package() {
+  package=$1
+
+  should_stow_package "$package" || return 0
+
+  echo "Stowing: $package -> $HOME"
+  if [ "$OVERRIDE" = "true" ]; then
+    stow --adopt --target "$HOME" --dir "$SCRIPT_DIR" "$package"
+  else
+    stow --target "$HOME" --dir "$SCRIPT_DIR" "$package"
+  fi
+}
+
 OVERRIDE=false
 if [ -t 0 ]; then
   printf "Override existing files when conflicts occur? [y/N]: "
@@ -102,18 +115,19 @@ else
   echo "Non-interactive shell detected; defaulting to no override."
 fi
 
+if [ -d "$SCRIPT_DIR/omp" ]; then
+  stow_package omp
+fi
+
 for dir in "$SCRIPT_DIR"/*/; do
   [ -d "$dir" ] || continue
   package=$(basename "$dir")
 
-  should_stow_package "$package" || continue
-
-  echo "Stowing: $package -> $HOME"
-  if [ "$OVERRIDE" = "true" ]; then
-    stow --adopt --target "$HOME" --dir "$SCRIPT_DIR" "$package"
-  else
-    stow --target "$HOME" --dir "$SCRIPT_DIR" "$package"
+  if [ "$package" = "omp" ]; then
+    continue
   fi
+
+  stow_package "$package"
 done
 
 echo "Done."

@@ -88,7 +88,10 @@ if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
 end
 
-oh-my-posh init fish --config ~/.config/omp/star.omp.json | source
+set OMP_CONFIG $HOME/.config/omp/star.omp.json
+if command -q oh-my-posh; and test -f $OMP_CONFIG
+    oh-my-posh init fish --config $OMP_CONFIG | source
+end
 # starship init fish | source
 
 zoxide init fish | source
