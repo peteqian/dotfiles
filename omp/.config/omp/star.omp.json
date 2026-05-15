@@ -1,0 +1,78 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "red": "#FF6B7A",
+    "teal": "#5DE4C7",
+    "mauve": "#DDB6F2",
+    "green": "#B8F28B",
+    "yellow": "#F9E076",
+    "peach": "#FFB86C",
+    "text": "#FFFFFF",
+    "subtext": "#D7E0FF"
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "p:red",
+          "style": "plain",
+          "template": "root <p:text>in</> ",
+          "type": "root"
+        },
+        {
+          "foreground": "p:teal",
+          "options": {
+            "style": "full"
+          },
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "p:mauve",
+          "options": {
+            "fetch_status": true
+          },
+          "style": "plain",
+          "template": "<p:text>on</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \ue725 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "type": "git"
+        },
+        {
+          "foreground": "p:green",
+          "options": {
+            "fetch_version": true
+          },
+          "style": "plain",
+          "template": "<p:text>via</> \ue781 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "type": "node"
+        },
+        {
+          "foreground": "p:yellow",
+          "options": {
+            "display_mode": "environment",
+            "fetch_virtual_env": true
+          },
+          "style": "plain",
+          "template": "<p:text>via</> \ue235 {{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }} ",
+          "type": "python"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "p:green",
+          "style": "plain",
+          "template": "\u279c ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 4
+}

@@ -88,8 +88,7 @@ if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
 end
 
-# oh-my-posh init fish --config ~/.config/fish/omp/catppuccin-custom.json | source
-oh-my-posh init fish --config ~/.config/fish/omp/takppuccin.omp.json | source
+oh-my-posh init fish --config ~/.config/omp/star.omp.json | source
 # starship init fish | source
 
 zoxide init fish | source
@@ -195,3 +194,12 @@ alias cdi=__zoxide_zi
 #
 #   zoxide init fish | source
 fish_add_path $HOME/.local/bin
+
+# Bun global bin (vercel/vc)
+fish_add_path /home/peterarch/.cache/.bun/bin
+
+# Use only GPU 0 for ROCm
+set -gx HIP_VISIBLE_DEVICES 0
+
+# opencode CLI
+fish_add_path $HOME/.opencode/bin
