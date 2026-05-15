@@ -1,19 +1,41 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "palette": {
-    "red": "#FF6B7A",
-    "teal": "#5DE4C7",
-    "mauve": "#DDB6F2",
-    "green": "#B8F28B",
-    "yellow": "#F9E076",
-    "peach": "#FFB86C",
-    "text": "#FFFFFF",
-    "subtext": "#D7E0FF"
+    "rosewater": "#f5e0dc",
+    "flamingo": "#f2cdcd",
+    "pink": "#f5c2e7",
+    "mauve": "#cba6f7",
+    "red": "#f38ba8",
+    "peach": "#fab387",
+    "yellow": "#f9e2af",
+    "green": "#a6e3a1",
+    "teal": "#94e2d5",
+    "sky": "#89dceb",
+    "sapphire": "#74c7ec",
+    "blue": "#89b4fa",
+    "lavender": "#b4befe",
+    "text": "#cdd6f4",
+    "subtext": "#a6adc8"
   },
   "blocks": [
     {
       "alignment": "left",
       "segments": [
+        {
+          "foreground": "p:rosewater",
+          "style": "plain",
+          "template": "{{ .UserName }} ",
+          "type": "session"
+        },
+        {
+          "foreground": "p:lavender",
+          "options": {
+            "time_format": "15:04"
+          },
+          "style": "plain",
+          "template": "{{ .CurrentDate | date .Format }} ",
+          "type": "time"
+        },
         {
           "foreground": "p:red",
           "style": "plain",
@@ -21,7 +43,7 @@
           "type": "root"
         },
         {
-          "foreground": "p:teal",
+          "foreground": "p:blue",
           "options": {
             "style": "full"
           },
