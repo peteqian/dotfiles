@@ -1,18 +1,10 @@
 # Place a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
-# You can use it to add commands that run after login to macOS user session.
-# 'start-at-login' needs to be 'true' for 'after-login-command' to work
-# Available commands: https://nikitabobko.github.io/AeroSpace/commands
-after-login-command = []
-
-# You can use it to add commands that run after AeroSpace startup.
-# 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = []
 
-# Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -21,7 +13,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 30
+accordion-padding = 10
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -129,7 +121,7 @@ alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-0 = 'workspace 0' # 0 is a special workspace, it is used to hold windows that are not assigned to any workspace
 alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
-alt-b = 'workspace B'
+# alt-b = 'workspace B'
 alt-c = 'workspace C'
 # alt-d = 'workspace D'
 # alt-e = 'workspace E'
@@ -137,7 +129,7 @@ alt-c = 'workspace C'
 # alt-g = 'workspace G'
 # alt-i = 'workspace I'
 # alt-m = 'workspace M'
-# alt-n = 'workspace N'
+alt-n = 'workspace N'
 # alt-o = 'workspace O'
 # alt-p = 'workspace P'
 # alt-q = 'workspace Q'
@@ -146,7 +138,7 @@ alt-c = 'workspace C'
 # alt-t = 'workspace T'
 # alt-u = 'workspace U'
 # alt-v = 'workspace V'
-alt-w = 'workspace W'
+# alt-w = 'workspace W'
 # alt-x = 'workspace X'
 # alt-y = 'workspace Y'
 # alt-z = 'workspace Z'
@@ -163,7 +155,7 @@ alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 0' # 0 is a special workspace, it is used to hold windows that are not assigned to any workspace
 alt-shift-a = 'move-node-to-workspace A'
-alt-shift-b = 'move-node-to-workspace B'
+# alt-shift-b = 'move-node-to-workspace B'
 alt-shift-c = 'move-node-to-workspace C'
 # alt-shift-d = 'move-node-to-workspace D'
 # alt-shift-e = 'move-node-to-workspace E'
@@ -171,7 +163,7 @@ alt-shift-c = 'move-node-to-workspace C'
 # alt-shift-g = 'move-node-to-workspace G'
 # alt-shift-i = 'move-node-to-workspace I'
 # alt-shift-m = 'move-node-to-workspace M'
-# alt-shift-n = 'move-node-to-workspace N'
+alt-shift-n = 'move-node-to-workspace N'
 # alt-shift-o = 'move-node-to-workspace O'
 # alt-shift-p = 'move-node-to-workspace P'
 # alt-shift-q = 'move-node-to-workspace Q'
@@ -180,7 +172,7 @@ alt-shift-c = 'move-node-to-workspace C'
 # alt-shift-t = 'move-node-to-workspace T'
 # alt-shift-u = 'move-node-to-workspace U'
 # alt-shift-v = 'move-node-to-workspace V'
-alt-shift-w = 'move-node-to-workspace W'
+# alt-shift-w = 'move-node-to-workspace W'
 # alt-shift-x = 'move-node-to-workspace X'
 # alt-shift-y = 'move-node-to-workspace Y'
 # alt-shift-z = 'move-node-to-workspace Z'
@@ -227,30 +219,48 @@ shift-down = ['volume set 0', 'mode main']
 8 = 'secondary' # Non-main monitor in case when there are only two monitors
 9 = 'secondary' # Non-main monitor in case when there are only two monitors
 0 = 'secondary'
+N = 'main'
+
+# the browser company arc
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = [
+  'move-node-to-workspace 7', # mnemonics W - Web browser
+]
 
 # chatgpt
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
 run = [
-  'move-node-to-workspace C', # mnemonics 1 - Terminal
+  'move-node-to-workspace A', # mnemonics 1 - Terminal
 ]
 
 # claude
 [[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop'
 run = [
-  'move-node-to-workspace C', # mnemonics c - ChatGPT
+  'move-node-to-workspace A', # mnemonics c - ChatGPT
 ]
 
 # chrome
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace W' # mnemonics W - Web browser
+run = 'move-node-to-workspace 1' # mnemonics W - Web browser
+
+# dia
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.dia'
+run = 'move-node-to-workspace 1' # mnemonics W - Web browser
 
 # ghostty
 [[on-window-detected]]
 if.app-id = "com.mitchellh.ghostty"
-run = ["layout floating", "move-node-to-workspace 1"]
+run = ["layout tiling", "move-node-to-workspace 2"]
+
+# cmux
+[[on-window-detected]]
+if.app-id = "com.cmuxterm.app"
+run = ["layout tiling", "move-node-to-workspace 2"]
 
 # slack
 [[on-window-detected]]
@@ -260,9 +270,31 @@ run = ["move-node-to-workspace 9"]
 # vscode
 [[on-window-detected]]
 if.app-id = "com.microsoft.VSCode"
-run = ["layout floating", "move-node-to-workspace 2"]
+run = ["move-node-to-workspace 3"]
 
 # zoom
 [[on-window-detected]]
 if.app-id = "us.zoom.xos"
 run = ["layout floating"]
+
+# obsidian
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = ["move-node-to-workspace N"]
+
+# cursor
+[[on-window-detected]]
+if.app-id = "com.todesktop.230313mzl4w4u92"
+run = ["move-node-to-workspace 3"]
+
+# postman
+[[on-window-detected]]
+if.app-id = "com.postmanlabs.mac"
+run = ["move-node-to-workspace 4"]
+
+# codex
+[[on-window-detected]]
+if.app-id='com.openai.codex'
+run = [
+  'move-node-to-workspace A'
+]
