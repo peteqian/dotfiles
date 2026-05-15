@@ -44,6 +44,13 @@ set -gx PATH /opt/homebrew/bin $PATH
 # PostgreSQL
 set -gx PATH /opt/homebrew/opt/postgresql@17/bin $PATH
 
+# Mise
+if command -q mise
+    mise activate fish | source
+else if test -d $HOME/.local/share/mise/shims
+    fish_add_path $HOME/.local/share/mise/shims
+end
+
 # # NVM
 # set -gx NVM_DIR $HOME/.nvm
 
