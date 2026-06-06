@@ -14,3 +14,5 @@ command = /opt/homebrew/bin/fish
 shell-integration = fish
 
 background-opacity = 1.00
+
+keybind = super+ctrl+r=prompt_surface_title

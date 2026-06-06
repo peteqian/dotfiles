@@ -260,7 +260,7 @@ run = ["layout tiling", "move-node-to-workspace 2"]
 # cmux
 [[on-window-detected]]
 if.app-id = "com.cmuxterm.app"
-run = ["layout tiling", "move-node-to-workspace 2"]
+run = ["layout tiling", "move-node-to-workspace 4"]
 
 # slack
 [[on-window-detected]]
