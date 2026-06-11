@@ -4,6 +4,9 @@ auto-update-channel = stable
 font-size = 16
 font-family = JetBrainsMono Nerd Font
 
+# Send Option as Alt/Meta so tmux M-* bindings work
+macos-option-as-alt = true
+
 theme = Catppuccin Mocha
 keybind = shift+enter=text:\x1b\r
 # These default Alt+Arrow bindings interfered with tmux window navigation.
