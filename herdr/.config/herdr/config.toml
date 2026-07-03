@@ -1,0 +1,22 @@
+[keys]
+prefix = "ctrl+a"
+rename_tab = "prefix+comma"
+rename_workspace = "prefix+<"
+next_workspace = "alt+down"
+previous_workspace = "alt+up"
+next_tab = "alt+right"
+previous_tab = "alt+left"
+
+[ui.toast]
+delivery = "herdr"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+[experimental]
+pane_history = true
+switch_ascii_input_source_in_prefix = true
+
+[theme]
+name = "terminal"
+auto_switch = false
