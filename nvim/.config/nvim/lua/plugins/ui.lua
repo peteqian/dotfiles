@@ -31,20 +31,12 @@ return {
       },
       picker = {
         hidden = true,
-        ignored = true,
+        ignored = false,
         sources = {
           files = {
             hidden = true,
-            ignored = true,
-            command = function()
-              return {
-                "--hidden",
-                "--no-ignore",
-                "--follow",
-                "--color never",
-                "--strip-cwd-prefix",
-              }
-            end,
+            ignored = false,
+            exclude = { "target", ".venv" },
           },
           explorer = {
             hidden = true, -- show dotfiles
