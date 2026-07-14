@@ -1,3 +1,4 @@
+onboarding = false
 [keys]
 prefix = "ctrl+a"
 rename_tab = "prefix+comma"
@@ -8,7 +9,7 @@ next_tab = "alt+right"
 previous_tab = "alt+left"
 
 [ui.toast]
-delivery = "herdr"
+delivery = "system"
 
 [ui]
 show_agent_labels_on_pane_borders = true
@@ -20,3 +21,6 @@ switch_ascii_input_source_in_prefix = true
 [theme]
 name = "terminal"
 auto_switch = false
+
+[ui.sound]
+enabled = false
